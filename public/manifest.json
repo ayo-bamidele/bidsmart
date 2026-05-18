@@ -1,0 +1,9 @@
+{
+  "short_name": "BidSmart",
+  "name": "BidSmart - Car Auction Analyser",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#e8470a",
+  "background_color": "#f8f7f4"
+}
