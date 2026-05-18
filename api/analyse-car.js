@@ -13,8 +13,13 @@ export default async function handler(req, res) {
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) return res.status(500).json({ error: "ANTHROPIC_API_KEY not configured in Vercel environment variables" });
 
+    // Use Sonnet for web search (Haiku doesn't support it), Haiku for everything else
+    const model = useWebSearch
+      ? "claude-sonnet-4-5-20250929"
+      : "claude-haiku-4-5-20251001";
+
     const body = {
-      model: "claude-haiku-4-5-20251001",
+      model,
       max_tokens: 2000,
       messages: [{ role: "user", content: prompt }],
     };
